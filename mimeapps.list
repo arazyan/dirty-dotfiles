@@ -1,0 +1,12 @@
+[Default Applications]
+video/mp4=org.videolan.VLC.desktop
+text/plain=org.gnome.TextEditor.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop
+
+[Added Associations]
+video/mp4=org.videolan.VLC.desktop;
+text/plain=org.gnome.TextEditor.desktop;

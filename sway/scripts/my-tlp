@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+# requires edit in /etc/sudoers
+# <paste_here_$USERNAME> ALL=(ALL) NOPASSWD: /usr/sbin/tlp setcharge 70 80
+
+sudo tlp setcharge 70 80

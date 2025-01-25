@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+# script for toggling the transform of my zeuslap external monitor
+# useful to flip the display for easy port access
+
+# Get the current transform of the output
+# usually monitor is connected via TYPE-C (DP) to DP-1/DP-2
+curr_transform=$(swaymsg -t get_outputs | jq -r '.[] | select(.name == "DP-1" or .name == "DP-2").transform')
+
+# Toggle the transform between 0 (normal) and 180 (if is display flipped)
+if [ "$curr_transform" == "normal" ]; then
+  swaymsg output DP-1 transform 180
+  swaymsg output DP-2 transform 180
+else
+  swaymsg output DP-1 transform normal
+  swaymsg output DP-2 transform normal
+fi
+
