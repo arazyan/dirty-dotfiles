@@ -1,0 +1,26 @@
+*                          # Ignore everything
+!.gitignore                # Do not ignore .gitignore
+!.git                      # Do not ignore .git directory
+
+# Include specific directories and files
+!sway/**                   
+!alacritty/**              
+!dunst/**                  
+!easyeffects/**            
+!gtk*/**                   
+!ibus/**                   
+!light/**                  
+!miniplayer/**             
+!nvim/**                   
+!pipewire/**               
+!ranger/**                 
+!rofi/**                   
+!swaylock/**               
+!systemd/**                
+!waybar/**
+
+# Include specific files
+!mimeapps.list
+!user-dirs.dirs
+!user-dirs.locale
+
