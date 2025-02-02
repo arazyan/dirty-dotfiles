@@ -27,7 +27,7 @@ set $rofi_cmd rofi \
 # TODO: add window with the next release of rofi-wayland
 #set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-set $menu "bash /home/mad/.config/rofi/launchers/type-7/launcher.sh"
+set $menu "bash /home/mad/.config/rofi/launchers/type-3/launcher.sh"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -329,6 +329,9 @@ exec_always {
     gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Ice'
     gsettings set $gnome-schema font-name 'SF Pro Display'
     gsettings set $gnome-schema cursor-size 24
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+
 }
 
 
@@ -425,3 +428,5 @@ bindsym $mod+Ctrl+L exec ~/.config/sway/scripts/lock.sh
 # execute this commands to set firefox from flatpak as default browsers (and give them flatseal permissions on file writing)
 # xdg-mime default org.mozilla.firefox.desktop x-scheme-handler/https x-scheme-handler/http             
 # xdg-settings set default-web-browser org.mozilla.firefox.desktop
+
+
