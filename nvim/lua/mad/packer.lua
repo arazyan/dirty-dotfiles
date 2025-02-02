@@ -56,4 +56,62 @@ use {
   requires = { "nvim-lua/plenary.nvim" },
 }
 
+-- Add avante.nvim plugin configuration
+-- vim-plug installation example
+-- 
+-- " Deps
+-- Plug 'stevearc/dressing.nvim'
+-- Plug 'nvim-lua/plenary.nvim'
+-- Plug 'MunifTanjim/nui.nvim'
+--
+-- " Optional deps
+-- Plug 'hrsh7th/nvim-cmp'
+-- Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+-- Plug 'HakonHarnes/img-clip.nvim'
+-- Plug 'zbirenbaum/copilot.lua'
+--
+-- " Yay, pass source=true if you want to build from source
+-- Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+-- autocmd! User avante.nvim lua << EOF
+-- require('avante_lib').load()
+-- require('avante').setup()
+-- EOF
+
+-- -- translated packer installation
+--  -- Dependencies
+-- use 'stevearc/dressing.nvim'
+-- use 'nvim-lua/plenary.nvim'
+-- use 'MunifTanjim/nui.nvim'
+--
+-- -- Optional dependencies
+-- use 'hrsh7th/nvim-cmp'
+-- use 'nvim-tree/nvim-web-devicons' -- or 'echasnovski/mini.icons'
+-- use {
+-- 'HakonHarnes/img-clip.nvim',
+-- opts = {
+--   default = {
+--     embed_image_as_base64 = false,
+--     prompt_for_file_name = false,
+--     drag_and_drop = {
+--       insert_mode = true,
+--     },
+--     use_absolute_path = true,
+--   },
+-- },
+-- }
+-- use 'zbirenbaum/copilot.lua'
+--
+-- -- Main plugin
+-- use {
+-- 'yetone/avante.nvim',
+-- branch = 'main',
+-- build = 'make', -- Automatically runs `make` after installation
+-- config = function()
+--   local avante = require('avante')
+--   require('avante_lib').load()
+--   avante.setup()
+-- end,
+-- }
+
 end)
+

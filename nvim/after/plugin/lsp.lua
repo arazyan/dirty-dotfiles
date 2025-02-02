@@ -128,13 +128,19 @@ local null_ls = require("null-ls")
 null_ls.setup({
     -- debug=true,
     sources = {
-        -- not pep-8
+        -- not pep-8 charlength by default
         null_ls.builtins.formatting.black.with({
             extra_args = { "--line-length", "80" }, -- Set line length for black
         }),
         -- pep-8
         null_ls.builtins.formatting.autopep8.with({
             extra_args = { "--max-line-length", "80" }, -- Set max line length for autopep8
+        }),
+
+        -- Markdown formatter (Prettier)
+        null_ls.builtins.formatting.prettier.with({
+            filetypes = { "markdown" },
+            extra_args = { "--prose-wrap", "always", "--print-width", "100" }, -- Ensures lines are wrapped to 80 chars
         }),
     },
     on_attach = function(client, bufnr)
