@@ -1,39 +1,8 @@
-
-"if exists("b:current_syntax")
-"    finish
-"endif
-"
-"" Keywords
-"syntax keyword pdlKeyword def protocol msg goto deduce
-"syntax match pdlOperator /[{};,|\[\]<>.]/ 
-"syntax match pdlLabel /\$\w\+/ 
-"syntax match pdlArrow />>\|<</
-"syntax keyword pdlError error_test_word
-"
-"" Comment (everything after //)
-"syntax match pdlComment "//.*$"
-"
-"" Highlighting links
-"highlight link pdlKeyword Keyword
-"highlight link pdlOperator Operator
-"highlight link pdlLabel Label
-"highlight link pdlArrow Statement
-"highlight link pdlError Error
-"highlight link pdlComment Comment
-"
-"let b:current_syntax = "pdl"
-"
-"" Define filetype and syntax highlighting for PDL
-
-
-
-"version 2
 if exists("b:current_syntax")
     finish
 endif
 
 " Define keywords and operators
-" TODO: add & (fork) support
 syntax keyword pdlKeyword def protocol msg goto deduce break continue
 syntax match pdlOperator /[{};,|\[\]<>.||]/ 
 syntax match pdlLabel /\$\w\+/
