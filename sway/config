@@ -115,6 +115,7 @@ bindsym Shift+Print exec $HOME/.config/sway/scripts/screenshot_slurp.sh
     # pointer_accel 0.5
 # }
 
+# input * xkb_options "altwin:swap_alt_win"
 
 ### Key bindings
 #

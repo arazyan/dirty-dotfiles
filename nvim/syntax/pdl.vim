@@ -1,3 +1,4 @@
+
 "if exists("b:current_syntax")
 "    finish
 "endif
@@ -32,8 +33,9 @@ if exists("b:current_syntax")
 endif
 
 " Define keywords and operators
-syntax keyword pdlKeyword def protocol msg goto deduce
-syntax match pdlOperator /[{};,|\[\]<>.]/ 
+" TODO: add & (fork) support
+syntax keyword pdlKeyword def protocol msg goto deduce break continue
+syntax match pdlOperator /[{};,|\[\]<>.||]/ 
 syntax match pdlLabel /\$\w\+/
 syntax match pdlArrow />>\|<</
 

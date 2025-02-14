@@ -11,7 +11,7 @@
 
 # Current Theme
 dir="$HOME/.config/rofi/powermenu/type-6"
-theme='style-5'
+theme='style-1'
 
 # CMDs
 lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
@@ -82,8 +82,6 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-			elif [[ "$DESKTOP_SESSION" == 'sway'  ]]; then
-				swaymsg exit
 			fi
 		fi
 	else
@@ -104,7 +102,11 @@ case ${chosen} in
 		run_cmd --hibernate
         ;;
     $lock)
-		swaylock -i ~/Wallpapers/ales-krivec-o0XfsSAgsxo-unsplash.jpg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"
+		if [[ -x '/usr/bin/betterlockscreen' ]]; then
+			betterlockscreen -l
+		elif [[ -x '/usr/bin/i3lock' ]]; then
+			i3lock
+		fi
         ;;
     $suspend)
 		run_cmd --suspend

@@ -66,7 +66,7 @@ run_rofi() {
 
 # Screenshot
 time=`date +%Y-%m-%d-%H-%M-%S`
-geometry=`wlr-randr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
+geometry=`xrandr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
 dir="`xdg-user-dir PICTURES`/Screenshots"
 file="Screenshot_${time}_${geometry}.png"
 
