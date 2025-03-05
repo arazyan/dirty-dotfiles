@@ -36,24 +36,31 @@ set $menu "bash /home/mad/.config/rofi/launchers/type-3/launcher.sh"
 #
 
 # check which is attached (DP-1 or DP-2) 
-exec --no-startup-id ~/.config/sway/scripts/get_current_dp_output.sh
-include ~/.config/sway/scripts/output_var
+exec dunst
+# exec --no-startup-id ~/.config/sway/scripts/get_current_dp_output.sh
+# include ~/.config/sway/scripts/output_var
 
 
 output eDP-1 {
-  scale 1.1
+  # scale 1.1
   background /home/mad/Pictures/Wallpapers/think-1920x1200.png fill
 }
 
-output $active_zeuslap_output {
-  mode 2560x1600@144Hz
-  scale 1.15
-  position 0 0
-
-  background /home/mad/Pictures/Wallpapers/wallhaven-kx5v57_2560x1600.png fill
+output DP-2 {
+    mode 2560x1600@60Hz
+    scale 1.15
+    position 0 0
+    background /home/mad/Pictures/Wallpapers/barashki.jpg fill
 }
 
 
+#TODO: fix script
+# output $active_zeuslap_output {
+#     mode 2560x1600@60Hz
+#     scale 1.15
+#     # position 0 0
+#     background /home/mad/Pictures/Wallpapers/barashki.jpg fill
+# }
 # Toggle internal display
 bindsym $mod+Shift+M Output eDP-1 toggle
 
@@ -68,9 +75,11 @@ bindsym $mod+Shift+T exec /home/mad/.config/sway/scripts/toggle_transform
 
 # Make a fullscreen shot (saves file)
 bindsym Print exec $HOME/.config/sway/scripts/screenshot.sh
+bindsym Shift+F12 exec $HOME/.config/sway/scripts/screenshot.sh
 
 # Select an area of shot (don't save, copy to clipboard)
 bindsym Shift+Print exec $HOME/.config/sway/scripts/screenshot_slurp.sh
+bindsym Ctrl+Shift+F12 exec $HOME/.config/sway/scripts/screenshot_slurp.sh
 
 
 #
@@ -84,18 +93,35 @@ bindsym Shift+Print exec $HOME/.config/sway/scripts/screenshot_slurp.sh
 #
 # Example configuration:
 #
+set $lock_bg ~/Pictures/Wallpapers/lock.png
+bindsym $mod+End exec swaylock -i $lock_bg
+
 # exec swayidle -w \
 #         timeout 300 'swaylock -f -c 000000' \
-#	  timeout 15 'swaylock -f -i ~/Wallpapers/ales-krivec-o0XfsSAgsxo-unsplash.jpg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"' \
+# 	  timeout 15 'swaylock -f -i $lock_bg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"' \
 #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 #          before-sleep 'swaylock -f -c 000000' \
-#	  before-sleep 'swaylock -f -i ~/Wallpapers/ales-krivec-o0XfsSAgsxo-unsplash.jpg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"'
+# 	  before-sleep 'swaylock -f -i $lock_bg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"'
+# exec swayidle -w \
+#         timeout 300 'swaylock -f -c 000000' \
+# 	  timeout 120 'swaylock -f -i $lock_bg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000' \
+# 	  before-sleep 'swaylock -f -i $lock_bg --indicator-radius 70 --inside-color 1e1e2e --inside-clear-color f5c2e7 --inside-wrong-color f38ba8 --ring-color 1e1e2e --ring-clear-color f5c2e7 --ring-ver-color 89b4fa --ring-wrong-color f38ba8 --inside-ver-color 89b4fa  --line-clear-color f5c2e7 --line-wrong-color f38ba8 --line-ver-color 89b4fa --font "SF Pro Display"'
+#
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+
+# toggle touchpad on/off
+set $touchpad_id "1267:12693:ELAN0678:00_04F3:3195_Touchpad"
+bindsym $mod+t exec swaymsg input "$touchpad_id" events toggle
+
+
+
 #
 # Example configuration:
 #
@@ -138,7 +164,8 @@ bindsym Shift+Print exec $HOME/.config/sway/scripts/screenshot_slurp.sh
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    # bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+c exec /home/mad/.config/sway/scripts/get_current_dp_output.sh
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -411,11 +438,23 @@ bar {
 }
 
 # Defining colors         border     bg         text       indicator  child_border
-client.focused            #c294dd    #1e222a    #ffffff    #975db0    #c294dd
+# client.focused            #c294dd    #1e222a    #ffffff    #975db0    #c294dd
 # client.unfocused          #1e222a    #1e222a    #abb2bf    #282c34    #282c34
 # client.focused_inactive   #1e222a    #1e222a    #abb2bf    #282c34    #282c34
 # client.urgent            #e06c75    #1e222a    #abb2bf    #e06c75    #e06c75
 #
+
+# trying to match everforest theme
+# Everforest Theme Colors
+#       border     bg         text       indicator  child_border
+client.focused            #a7c080    #2d353b    #d3c6aa    #83c092    #a7c080
+client.unfocused          #2d353b    #2d353b    #859289    #3a4248    #3a4248
+client.focused_inactive   #2d353b    #2d353b    #859289    #3a4248    #3a4248
+client.urgent            #e67e80    #2d353b    #d3c6aa    #e67e80    #e67e80
+
+for_window [class=".*"] border pixel 2  # Default border size
+for_window [class=".*"] focus border pixel 4  # Thicker border when focused
+
 
 # idle lock?
 # exec swayidle -w \
@@ -431,3 +470,5 @@ bindsym $mod+Ctrl+L exec ~/.config/sway/scripts/lock.sh
 # xdg-settings set default-web-browser org.mozilla.firefox.desktop
 
 
+exec echo "Sway запускает exec" > /tmp/sway_exec.log
+exec sleep 5 && /usr/bin/python3 ~/.config/sway/scripts/eye_break.py
