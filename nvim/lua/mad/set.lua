@@ -31,3 +31,26 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
+-- окно диагностики
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
+
+
+
+--highlight spaces
+vim.opt.list = true -- Enable list mode
+-- vim.opt.listchars:append("space:*") -- Show spaces as dots
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "gray" })
+-- vim.opt.list = true
+-- vim.opt.listchars:append("eol:↲") -- Show end-of-line markers
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        -- Define a highlight for trailing spaces
+        vim.cmd [[highlight TrailingWhitespace ctermfg=red guifg=gray]]
+
+        -- Match only trailing spaces
+        vim.cmd [[match TrailingWhitespace /\s\+$/]]
+    end
+})
+

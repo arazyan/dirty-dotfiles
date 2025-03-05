@@ -6,3 +6,6 @@ require("mad.remap")
 -- print("hello")
 require("mad.set")
 
+require("mad.init")
+
+

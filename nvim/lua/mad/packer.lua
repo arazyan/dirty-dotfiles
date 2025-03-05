@@ -13,25 +13,24 @@ return require('packer').startup(function(use)
 }
 
 -- color theme setup
-use({ 
-	'rose-pine/neovim', 
-	as = 'rose-pine', 
+use({
+	'rose-pine/neovim',
+	as = 'rose-pine',
 	config = function()
 		require('rose-pine').setup({
 			--- @usage 'main' | 'moon' | 'dawn'
 			variant = 'main',
 			dark_variant = 'main',
 		})
-		vim.cmd('colorscheme rose-pine')
+		-- vim.cmd('colorscheme rose-pine')
 	end
 })
 
 
 -- Plug package manager installation
 -- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
---
+
 -- Packer package manager installation
--- treesitter used to add more colors
 use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
 -- primeagen plugin
@@ -56,62 +55,23 @@ use {
   requires = { "nvim-lua/plenary.nvim" },
 }
 
--- Add avante.nvim plugin configuration
--- vim-plug installation example
--- 
--- " Deps
--- Plug 'stevearc/dressing.nvim'
--- Plug 'nvim-lua/plenary.nvim'
--- Plug 'MunifTanjim/nui.nvim'
---
--- " Optional deps
--- Plug 'hrsh7th/nvim-cmp'
--- Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
--- Plug 'HakonHarnes/img-clip.nvim'
--- Plug 'zbirenbaum/copilot.lua'
---
--- " Yay, pass source=true if you want to build from source
--- Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
--- autocmd! User avante.nvim lua << EOF
--- require('avante_lib').load()
--- require('avante').setup()
--- EOF
+-- everforest theme
+use {
+  "sainnhe/everforest",
+  config = function()
+    -- Set the colorscheme
+    vim.g.everforest_background = "hard"  -- Options: 'hard', 'medium', 'soft'
+    vim.g.everforest_enable_italic = 1
+    -- vim.g.everforest_disable_italic_comment = 1
+    vim.cmd("colorscheme everforest")
+    -- vim.g.everforest_transparent_background = 1
 
--- -- translated packer installation
---  -- Dependencies
--- use 'stevearc/dressing.nvim'
--- use 'nvim-lua/plenary.nvim'
--- use 'MunifTanjim/nui.nvim'
---
--- -- Optional dependencies
--- use 'hrsh7th/nvim-cmp'
--- use 'nvim-tree/nvim-web-devicons' -- or 'echasnovski/mini.icons'
--- use {
--- 'HakonHarnes/img-clip.nvim',
--- opts = {
---   default = {
---     embed_image_as_base64 = false,
---     prompt_for_file_name = false,
---     drag_and_drop = {
---       insert_mode = true,
---     },
---     use_absolute_path = true,
---   },
--- },
--- }
--- use 'zbirenbaum/copilot.lua'
---
--- -- Main plugin
--- use {
--- 'yetone/avante.nvim',
--- branch = 'main',
--- build = 'make', -- Automatically runs `make` after installation
--- config = function()
---   local avante = require('avante')
---   require('avante_lib').load()
---   avante.setup()
--- end,
--- }
+  end
+}
 
+-- glow plugin for markdown render inside neovim
+use {"ellisonleao/glow.nvim", config = function()
+    require("glow").setup()
+    end}
 end)
 
