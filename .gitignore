@@ -45,3 +45,4 @@ yelp
 .gsd-keyboard.settings-ported
 droidcam-cli
 obsidian-fix
+nvim/plugin/packer_compiled.lua
