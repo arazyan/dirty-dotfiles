@@ -128,14 +128,17 @@ local null_ls = require("null-ls")
 null_ls.setup({
     -- debug=true,
     sources = {
+        -- ruff formatter
+        -- null_ls.builtins.formatting.ruff,  -- Форматирование Python
+        null_ls.builtins.diagnostics.ruff, -- Линтер Ruff
         -- not pep-8 charlength by default
         null_ls.builtins.formatting.black.with({
-            extra_args = { "--line-length", "80" }, -- Set line length for black
+            extra_args = { "--line-length", "100" }, -- Set line length for black
         }),
         -- pep-8
-        null_ls.builtins.formatting.autopep8.with({
-            extra_args = { "--max-line-length", "80" }, -- Set max line length for autopep8
-        }),
+        -- null_ls.builtins.formatting.autopep8.with({
+        --     extra_args = { "--max-line-length", "90" }, -- Set max line length for autopep8
+        -- }),
 
         -- Markdown formatter (Prettier)
         null_ls.builtins.formatting.prettier.with({

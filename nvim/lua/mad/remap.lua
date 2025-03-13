@@ -1,18 +1,29 @@
 -- custom mappings
-
+-- Полезное
+-- ========
+-- * Чтобы посмотреть текущие маппинги на K: `:verbose map K`
+-- * 
 vim.g.mapleader = " "
 -- while in normal mode, if i press leader(=space)pv it executes Ex command
 -- so (stands for "Shout Out") command sources this file
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- this maps below are not mine, i not learned them all yet
+-- топовая мапа, позволяет в visual mode двигать выделенное вверх-вниз
+--  если выделить визуальный блок, его тоже можно будет двигать вверх-вниз с помощью J и K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
--- vim.keymap.set("n", "J", "mzJ`z")
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- центрирует положение курсора на экране после использования перемещения на полстраницы вверх/вниз
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+
+-- улучшение навигации по поисковым результатам
 -- vim.keymap.set("n", "n", "nzzzv")
 -- vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+
+-- vim.keymap.set("n", "J", "mzJ`z")
 -- vim.keymap.set("n", "<leader>vwm", function()
 --     require("vim-with-me").StartVimWithMe()
 -- end)
@@ -22,7 +33,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- -- greatest remap ever
 -- vim.keymap.set("x", "<leader>p", "\"_dP")
 --
--- -- next greatest remap ever : for yanking into system clipboard
+-- для копирования в системный буфер препендом <leader>
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
